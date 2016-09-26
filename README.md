@@ -1,3 +1,6 @@
+# Before you start
+This works only with IBM bluemix blockchain V0.5 developer preview version. 
+
 # How to write chaincode
 This tutorial demonstrates the basic building blocks and functionality necessary to build an elementary [Hyperledger fabric](https://github.com/hyperledger/fabric) chaincode application. You will be incrementally building up to a working chaincode that will be able to create generic assets.
 Then, you will interact with the chaincode by using the network's API. After reading and completing this tutorial, you should be able to explicitly answer the following questions:
@@ -26,7 +29,13 @@ Currently, the Hyperledger Fabric supports chaincode written in Go. We require [
 
 	```
 	cd $GOPATH
-	go get github.com/hyperledger/fabric/core/chaincode/shim
+	mkdir -p src/github.com/hyperledger
+	cd $GOPATH/src/github.com/hyperledger
+	git clone https://github.com/hyperledger-archives/fabric.git
+	cd fabric
+	git checkout -b v0.5-developer-preview
+	cd $GOPATH
+	go install github.com/hyperledger/fabric/core/chaincode/shim
 	```
 3. The [IBM Bluemix](https://console.ng.bluemix.net/) IBM Blockchain service currently requires that chaincode to be in a [GitHub](https://Github.com/) repository. Therefore, if you don't already have a GitHub account, you should [get one](http://github.com). 
 4. If you haven't got Git setup locally on your computer, you should [do that](https://help.github.com/articles/set-up-git/), as well.
